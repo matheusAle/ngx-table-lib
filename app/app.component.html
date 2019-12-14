@@ -1,0 +1,26 @@
+<app-table>
+  <tr *ngFor="let item of [1, 2, 3]">
+    <td 
+      type="checkbox"
+    ></td>
+    
+    <td
+        header="col 1"
+      >
+        <strong>{{ item }}</strong>
+    </td>
+
+    <td
+        header="col 2"
+      >
+        <strong>{{ item +  1 }}</strong>
+    </td>
+
+    <td
+        header="col 3"
+      >
+        <strong>{{ item +  2 }}</strong>
+    </td>
+
+  </tr>
+</app-table>
