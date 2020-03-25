@@ -1,26 +1,12 @@
 <app-table>
-  <tr *ngFor="let item of [1, 2, 3]">
-    <td 
-      type="checkbox"
-    ></td>
+  <tr *ngFor="let data of table1.data">
+    <ng-container *ngFor="let header of table1.headers">
+    <td [header]="header">
+      <strong>{{ data[header] }}</strong>
+    </td>
+    </ng-container>
     
-    <td
-        header="col 1"
-      >
-        <strong>{{ item }}</strong>
-    </td>
-
-    <td
-        header="col 2"
-      >
-        <strong>{{ item +  1 }}</strong>
-    </td>
-
-    <td
-        header="col 3"
-      >
-        <strong>{{ item +  2 }}</strong>
-    </td>
-
   </tr>
 </app-table>
+<button (click)="addColumn()">add column</button>
+<button (click)="addData()">add data</button>
