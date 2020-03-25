@@ -56,6 +56,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmr.ts"
+                }
+              ]
             }
           }
         },
@@ -67,6 +75,10 @@
           "configurations": {
             "production": {
               "browserTarget": "ngx-table-lib:build:production"
+            },
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "ngx-table-lib:build:hmr"
             }
           }
         },
@@ -128,6 +140,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-table": {
+      "root": "projects/ngx-table",
+      "sourceRoot": "projects/ngx-table/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-table/tsconfig.lib.json",
+            "project": "projects/ngx-table/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-table/src/test.ts",
+            "tsConfig": "projects/ngx-table/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-table/tsconfig.lib.json",
+              "projects/ngx-table/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

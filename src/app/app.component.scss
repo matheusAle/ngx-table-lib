@@ -1,0 +1,104 @@
+:host ::ng-deep {
+  display: block;
+  width: 100%;
+
+    table {
+    position: relative;
+    display: table;
+    width: 100%;
+    border: 1px thin var(--tableHeader);
+    background-color: transparent;
+    font-weight: 300;
+    font-size: 8pt;
+    user-select: none;
+    border-radius: 5px;
+    border-spacing: 0;
+    z-index: 2;
+
+    thead {
+      display: table-header-group;
+      text-align: center;
+      vertical-align: bottom;
+
+      tr {
+        font-variant: all-small-caps;
+        font-size: 11pt;
+        letter-spacing: 0.2px;
+
+        :first-child {
+          border-top-left-radius: 5px;
+          -webkit-border-top-left-radius: 5px;
+        }
+
+        :last-child {
+          border-top-right-radius: 5px;
+          -webkit-border-top-right-radius: 5px;
+        }
+
+        th {
+          border: none !important;
+          padding: 0 10px 0 0;
+        }
+
+        td {
+          border: none !important;
+        }
+      }
+    }
+
+    tbody {
+      display: table-row-group;
+
+      tr {
+        display: table-row;
+        position: relative;
+
+        &:hover {
+          box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.1);
+          transition: all .2s linear 0s;
+          -webkit-box-shadow: inset 0px 0px 100px rgba(0, 0, 0, 0.1);
+          -webkit-transition: all .2s linear 0s;
+        }
+
+        &:nth-child(even) {
+          background-color: var(--tableZebra);
+        }
+
+        &:nth-child(odd) {
+          background-color: var(--tableLine);
+        }
+      }
+    }
+
+    th {
+      white-space: nowrap;
+      display: table-cell;
+      padding: 5px 10px;
+      border-color: var(--appCardBackground);
+
+      &:first-child {
+        border-radius: 5px 0 0 5px;
+      }
+
+      &:last-child {
+        border-radius: 0 5px 5px 0;
+      }
+    }
+
+    td {
+      display: table-cell;
+      padding: 5px 10px;
+      vertical-align: middle;
+      text-align: center;
+      border-color: var(--tableHeader);
+
+      &:first-child {
+        border-radius: 5px 0 0 5px;
+      }
+
+      &:last-child {
+        border-radius: 0 5px 5px 0;
+      }
+    }
+  }
+}
